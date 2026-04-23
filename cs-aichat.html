@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Chat — Farah Wahida</title>
+<link rel="stylesheet" href="cs.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="index.html">Farah Wahida</a>
+  <a class="nav-back" href="index.html">← All work</a>
+</nav>
+
+<header class="cs-header">
+  <div class="cs-eyebrow">Case study 02 · AI chat · Nakhoda AI</div>
+  <h1 class="cs-title">Designing a document selection experience that feels like AI, works like SaaS</h1>
+  <p class="cs-subtitle">The brief was to make a structured selection flow feel conversational. The harder problem turned out to be designing for when the AI gets it wrong.</p>
+  <div class="cs-meta-row">
+    <div class="cs-meta-item"><div class="cs-meta-label">Role</div><div class="cs-meta-val">Sole designer</div></div>
+    <div class="cs-meta-item"><div class="cs-meta-label">Type</div><div class="cs-meta-val">New feature</div></div>
+    <div class="cs-meta-item"><div class="cs-meta-label">Status</div><div class="cs-meta-val">Shipped to client</div></div>
+  </div>
+</header>
+
+<main class="cs-body">
+
+  <div class="cs-section">
+    <div class="cs-section-label">The brief</div>
+    <p>The AI chat needed a document selection step — users had to tell the system which regulatory documents to query before they could start a conversation. The direction from my boss was specific: it should work like any standard SaaS flow technically, but feel like an AI product visually. Not a modal. Not a dropdown. Something that felt like the AI itself was responding to the user's intent.</p>
+    <div class="callout"><p>The design challenge wasn't just making it look different — it was making a structured selection process feel like a natural part of a conversation.</p></div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">How the feature works</div>
+    <p>When a user types their first prompt — a topic or regulatory area they want to explore — the system analyses the intent and suggests a list of relevant documents. The idea is to prompt the user: "here are the documents that might be relevant to what you're looking for." Users can then select one or multiple documents before the AI begins querying.</p>
+    <p>This matters in a compliance context because users often don't know which specific regulation covers what they're looking for. The suggestion layer reduces the friction of knowing where to start.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">The placement problem</div>
+    <p>The document list needed to appear after the user's first prompt — but where? I worked through three options before landing on the right one.</p>
+
+    <div class="decision-grid">
+      <div class="decision-card">
+        <div class="d-label">Option A — in chat ✕</div>
+        <div class="d-desc">Displaying 20–50 documents inline in the chat thread would bury the conversation and dominate the screen, breaking the flow of the interaction.</div>
+      </div>
+      <div class="decision-card">
+        <div class="d-label">Option B — modal ✕</div>
+        <div class="d-desc">A modal feels system-initiated — like the product interrupted you. It breaks the sense that the AI is responding contextually to what you said.</div>
+      </div>
+      <div class="decision-card chosen">
+        <div class="d-label">Option C — sidebar ✓</div>
+        <div class="d-desc">A sidebar appears only when needed, keeps the chat visible, and feels like the AI surfaced it — not like a system interruption.</div>
+      </div>
+    </div>
+
+    <div class="annotation">The sidebar also solved a practical constraint — displaying up to 50 documents with scroll-to-load without overwhelming the main chat area.</div>
+
+    <div class="img-slot">[ Insert: AI chat with contextual sidebar open — suggested documents tab visible ]</div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">The problem I didn't design — and had to solve</div>
+    <p>During real use, my boss kept flagging that the suggested documents weren't showing the right results. She'd search for "AMLA" and the AMLA document wouldn't appear at the top — despite the title being an exact match. She assumed it was a backend issue, and technically it was.</p>
+    <p>But I noticed she raised it repeatedly, across different searches. It wasn't an edge case — it was a consistent failure in the happy path. Even if the backend was eventually fixed, users needed a way to find documents they were looking for right now.</p>
+
+    <div class="pullquote"><p>My boss was treating it as a technical problem. I saw it as a user autonomy problem — and proposed a design solution.</p></div>
+
+    <p>I added a manual search tab alongside the suggested documents in the same sidebar. Both tabs are visible from the moment the sidebar appears — users aren't forced to discover the fallback only when suggestions fail. They can use either path, or combine selections from both, before starting the query.</p>
+
+    <div class="img-slot">[ Insert: sidebar with two tabs — suggested documents and manual search side by side ]</div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">Processing state</div>
+    <p>Once documents are selected and the user sends a query, the AI needs time to process. Rather than a loading bar disconnected from the conversation, the processing state appears directly in the chat — an animation in the same place the response will appear. It feels like the AI is thinking, not like the system is buffering. The chat stays the centre of the experience throughout.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">What I'd do differently</div>
+    <p>Looking back, the manual search tab solved the most visible failure — documents not appearing in suggestions. But the deeper unresolved question is what happens before that. One of the stated goals of this feature was to help junior compliance professionals who are still learning the regulatory landscape. The suggested documents work well for someone who already knows what they're looking for. They don't help someone who doesn't yet know which regulation covers their situation — which is exactly who this feature was meant to support. That's the user I didn't fully design for, and the one who probably needed the most guidance.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">What this taught me</div>
+    <div class="callout"><p>"The brief was about making something look like AI. The harder problem turned out to be making it work reliably for users regardless of what the AI did or didn't surface. Good design covers both the ideal state and the state where the system lets you down."</p></div>
+  </div>
+
+</main>
+
+<div class="cs-nav">
+  <a href="cs-notification.html">← Notification system</a>
+  <a href="cs-gapanalysis.html">Next: Gap analysis →</a>
+</div>
+
+</body>
+</html>

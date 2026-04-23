@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farah Wahida — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #1a1a1a;
+    --gray-dark: #404040;
+    --gray-mid: #757575;
+    --gray-light: #d4d4d4;
+    --gray-faint: #f5f5f5;
+    --white: #ffffff;
+    --serif: 'Lora', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+    --max: 680px;
+    --max-wide: 1080px;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif);
+    background: var(--white);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gray-light);
+    z-index: 100;
+    padding: 0 2rem;
+    height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-name {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gray-mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--black); }
+
+  /* HERO */
+  .hero {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 120px 2rem 80px;
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gray-dark);
+  }
+  .hero-bio {
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--gray-dark);
+    margin-bottom: 36px;
+    max-width: 560px;
+  }
+  .hero-links {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .hero-link {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 1px;
+    transition: opacity 0.15s;
+  }
+  .hero-link:hover { opacity: 0.5; }
+  .hero-link.muted {
+    color: var(--gray-mid);
+    border-bottom-color: var(--gray-light);
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 2rem;
+    border-top: 1px solid var(--gray-light);
+  }
+
+  /* WORK SECTION */
+  .work-section {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 64px 2rem 96px;
+  }
+  .section-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 40px;
+  }
+
+  /* CASE STUDY CARDS */
+  .case-studies { display: flex; flex-direction: column; gap: 0; }
+
+  .cs-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 36px 0;
+    border-top: 1px solid var(--gray-light);
+    transition: opacity 0.15s;
+    cursor: pointer;
+  }
+  .cs-card:last-child { border-bottom: 1px solid var(--gray-light); }
+  .cs-card:hover { opacity: 0.6; }
+
+  .cs-card-meta {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 10px;
+  }
+  .cs-card-title {
+    font-family: var(--serif);
+    font-size: 1.375rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--black);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .cs-card-desc {
+    font-family: var(--serif);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--gray-dark);
+    max-width: 520px;
+    margin-bottom: 16px;
+  }
+  .cs-card-tags {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .cs-tag {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-mid);
+    border: 1px solid var(--gray-light);
+    border-radius: 99px;
+    padding: 3px 10px;
+  }
+  .cs-arrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--gray-mid);
+    margin-top: 14px;
+    display: flex; align-items: center; gap: 6px;
+    transition: gap 0.2s;
+  }
+  .cs-card:hover .cs-arrow { gap: 10px; }
+
+  /* ABOUT STRIP */
+  .about-strip {
+    background: var(--gray-faint);
+    border-top: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
+    padding: 56px 2rem;
+  }
+  .about-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .about-inner p {
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.85;
+    color: var(--gray-dark);
+    margin-bottom: 16px;
+  }
+  .about-inner p:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  footer {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 40px 2rem 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-note {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--gray-mid);
+  }
+  .footer-links {
+    display: flex; gap: 1.5rem;
+  }
+  .footer-links a {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--gray-mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--black); }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+  .fade-in:nth-child(1) { animation-delay: 0.05s; }
+  .fade-in:nth-child(2) { animation-delay: 0.15s; }
+  .fade-in:nth-child(3) { animation-delay: 0.25s; }
+  .fade-in:nth-child(4) { animation-delay: 0.35s; }
+  .fade-in:nth-child(5) { animation-delay: 0.45s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.25rem; }
+    .hero { padding: 100px 1.25rem 64px; }
+    .work-section { padding: 48px 1.25rem 72px; }
+    .section-divider { padding: 0 1.25rem; }
+    .about-strip { padding: 40px 1.25rem; }
+    footer { padding: 32px 1.25rem 48px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="index.html">Farah Wahida</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="mailto:[your-email]">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow fade-in">Product Designer</div>
+  <h1 class="fade-in">Turning complex systems into <em>experiences people can actually use.</em></h1>
+  <p class="hero-bio fade-in">I design AI-powered enterprise products — the kind where the domain is dense, the users are experts, and the stakes are real. Currently at Otonoco AI, building compliance tools for regulated industries.</p>
+  <div class="hero-links fade-in">
+    <a class="hero-link" href="mailto:[your-email]">[your-email]</a>
+    <a class="hero-link muted" href="[linkedin-url]" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="work-section" id="work">
+  <div class="section-label">Selected work</div>
+  <div class="case-studies">
+
+    <a class="cs-card" href="cs-notification.html">
+      <div class="cs-card-meta">Case study 01 · Notification system</div>
+      <div class="cs-card-title">From noise to next steps: redesigning notifications for a compliance platform</div>
+      <div class="cs-card-desc">A new notification feature that started with familiar patterns — and had to be completely rethought when those patterns turned out to be the wrong model entirely.</div>
+      <div class="cs-card-tags">
+        <span class="cs-tag">Interaction design</span>
+        <span class="cs-tag">Enterprise UX</span>
+        <span class="cs-tag">User feedback</span>
+      </div>
+      <div class="cs-arrow">Read case study →</div>
+    </a>
+
+    <a class="cs-card" href="cs-aichat.html">
+      <div class="cs-card-meta">Case study 02 · AI chat</div>
+      <div class="cs-card-title">Designing a document selection experience that feels like AI, works like SaaS</div>
+      <div class="cs-card-desc">The brief was to make a structured selection flow feel conversational. The harder problem turned out to be designing for when the AI gets it wrong.</div>
+      <div class="cs-card-tags">
+        <span class="cs-tag">AI product design</span>
+        <span class="cs-tag">Interaction design</span>
+        <span class="cs-tag">Fallback states</span>
+      </div>
+      <div class="cs-arrow">Read case study →</div>
+    </a>
+
+    <a class="cs-card" href="cs-gapanalysis.html">
+      <div class="cs-card-meta">Case study 03 · Gap analysis</div>
+      <div class="cs-card-title">Designing a dual-document selection with no reference to work from</div>
+      <div class="cs-card-desc">A niche use case with no design precedent online. Three iterations, self-imposed constraints, and a final design where the layout itself does the explaining.</div>
+      <div class="cs-card-tags">
+        <span class="cs-tag">Systems thinking</span>
+        <span class="cs-tag">Information architecture</span>
+        <span class="cs-tag">Iterative design</span>
+      </div>
+      <div class="cs-arrow">Read case study →</div>
+    </a>
+
+  </div>
+</section>
+
+<div class="about-strip" id="about">
+  <div class="about-inner">
+    <p>I'm a product designer based in Kuala Lumpur, specialising in AI-powered B2B SaaS products. I work best at the intersection of complex domain knowledge and user clarity — translating what subject matter experts know into experiences that non-experts can navigate confidently.</p>
+    <p>My background includes QA testing at AirAsia, information systems work at Hitachi Rail, and most recently designing the full product experience at Otonoco AI — where I was the sole designer building from scratch across a regulatory compliance platform.</p>
+    <p>I'm currently open to product designer roles at mid-to-large technology companies.</p>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-note">Farah Wahida · Product Designer · Kuala Lumpur</span>
+  <div class="footer-links">
+    <a href="mailto:[your-email]">Email</a>
+    <a href="[linkedin-url]" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>

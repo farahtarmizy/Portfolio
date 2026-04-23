@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notification System — Farah Wahida</title>
+<link rel="stylesheet" href="cs.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="index.html">Farah Wahida</a>
+  <a class="nav-back" href="index.html">← All work</a>
+</nav>
+
+<header class="cs-header">
+  <div class="cs-eyebrow">Case study 01 · Notification system · Nakhoda AI</div>
+  <h1 class="cs-title">From noise to next steps: redesigning notifications for a compliance platform</h1>
+  <p class="cs-subtitle">A new feature that started with familiar patterns — and had to be completely rethought when those patterns turned out to be the wrong model entirely.</p>
+  <div class="cs-meta-row">
+    <div class="cs-meta-item"><div class="cs-meta-label">Role</div><div class="cs-meta-val">Sole designer</div></div>
+    <div class="cs-meta-item"><div class="cs-meta-label">Type</div><div class="cs-meta-val">New feature</div></div>
+    <div class="cs-meta-item"><div class="cs-meta-label">Status</div><div class="cs-meta-val">Shipped to client</div></div>
+  </div>
+</header>
+
+<main class="cs-body">
+
+  <div class="cs-section">
+    <div class="cs-section-label">The brief</div>
+    <p>The client needed a notification system to alert compliance users about three specific events: new regulatory documents, documents with upcoming effective dates, and changes to sanction lists. I was already in the loop on the client requirements, so the brief came through directly — no intermediary spec, just the requirement and the expectation that I'd figure out the design.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">My first approach — and why it was wrong</div>
+    <p>My first instinct was to look at how other products handle notifications. I referenced social media platforms and B2B SaaS tools — and they all looked more or less the same: a modal near the profile icon, an icon, a title, a short description. So I designed exactly that.</p>
+    <p>It looked fine. It felt familiar. And that was the problem.</p>
+
+    <div class="img-slot">[ Insert: initial notification design — single-destination, title + description pattern ]</div>
+
+    <p>My boss reviewed it and asked a simple question: <em>"Where do you want users to go after this?"</em></p>
+    <p>I didn't have a good answer. I said they could view the document — but even as I said it, I realised that was incomplete. Viewing the document was just one thing a user might want to do. They might also want to run a gap analysis on it, compare it to a previous version, or query it in the AI chat. My notification design had assumed one destination. The product didn't work that way.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">Reframing the problem</div>
+    <p>I went back to the product flows on my own to understand how the modules connected. What I found was that a regulatory document isn't just a piece of content to read — it's an entry point into multiple workflows. Depending on what the user needs to do, the same document could lead to four completely different places in the product.</p>
+
+    <div class="pullquote"><p>The real design question wasn't "what should the notification look like?" It was "what should users be able to do the moment they see it?"</p></div>
+
+    <p>I also came across Google Material 3's documentation on notifications with multiple CTAs — which confirmed that this pattern existed and had been thought through. That gave me the structural confidence to pursue it rather than force a single path.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">The redesign</div>
+    <p>Instead of leading users to one fixed destination, the redesigned notification surfaces contextual actions based on the document type and what's available for that specific document. There's one primary action to guide the user's attention, with secondary actions available for those who want to go further.</p>
+    <p>Depending on the notification type, a user can:</p>
+    <ul class="detail-list">
+      <li><span class="d-main">Generate a gap analysis mapped to their internal documents</span></li>
+      <li><span class="d-main">View a version comparison against the previous regulatory document</span></li>
+      <li><span class="d-main">View the document details in the document library</span></li>
+      <li><span class="d-main">Start an AI chat to query the document directly</span></li>
+    </ul>
+
+    <div class="img-slot">[ Insert: redesigned notification — multi-CTA layout with primary and secondary actions ]</div>
+
+    <p>Not every action appears for every notification — the system shows only what's relevant for that document type, which keeps the design focused without oversimplifying.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">What I'd do differently</div>
+    <p>Looking back, I'd approach the downstream pages differently. The notification redesign solved the immediate problem — users now know what they can do next. But the deeper issue is that the document library and comparison pages themselves weren't designed to support multiple intents. A user who lands there from a notification still has limited paths forward.</p>
+    <p>The right fix wasn't just the notification. It was ensuring that every page a notification could land on was itself designed to expand the user's options — not close them down. That's a systems-level consideration I'd flag much earlier in the process next time.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">What this taught me</div>
+    <div class="callout"><p>"Familiar patterns aren't always wrong — but they're only right if the context matches. Compliance notifications exist to trigger decisions, not just awareness. Once I understood that, the design became obvious. The hard part was getting there."</p></div>
+  </div>
+
+</main>
+
+<div class="cs-nav">
+  <a href="index.html">← All work</a>
+  <a href="cs-aichat.html">Next: AI chat →</a>
+</div>
+
+</body>
+</html>

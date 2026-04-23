@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gap Analysis — Farah Wahida</title>
+<link rel="stylesheet" href="cs.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="index.html">Farah Wahida</a>
+  <a class="nav-back" href="index.html">← All work</a>
+</nav>
+
+<header class="cs-header">
+  <div class="cs-eyebrow">Case study 03 · Gap analysis · Nakhoda AI</div>
+  <h1 class="cs-title">Designing a dual-document selection with no reference to work from</h1>
+  <p class="cs-subtitle">A niche use case with no design precedent online. Three iterations, self-imposed constraints, and a final design where the layout itself does the explaining.</p>
+  <div class="cs-meta-row">
+    <div class="cs-meta-item"><div class="cs-meta-label">Role</div><div class="cs-meta-val">Sole designer</div></div>
+    <div class="cs-meta-item"><div class="cs-meta-label">Type</div><div class="cs-meta-val">New feature</div></div>
+    <div class="cs-meta-item"><div class="cs-meta-label">Status</div><div class="cs-meta-val">Shipped to client</div></div>
+  </div>
+</header>
+
+<main class="cs-body">
+
+  <div class="cs-section">
+    <div class="cs-section-label">What gap analysis does</div>
+    <p>Compliance officers need to check whether their internal policies are aligned with regulatory requirements. The gap analysis feature automates this — a compliance officer selects one authority document (a regulatory requirement) and one internal document (their company's policy), and the system generates an analysis highlighting what's missing, what evidence exists, how to comply, and how critical each gap is.</p>
+    <p>The design challenge was the selection step: how do you let a user pick from two completely different document lists — simultaneously, on one screen — in a way that feels clear and controlled?</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">The constraint that shaped everything</div>
+    <p>When I searched for design references, I found nothing directly applicable. Most document selection patterns used sequential flows — pick from list A on one screen, then pick from list B on the next. That would have meant multiple pages, more clicks, and users losing sight of their first selection by the time they made their second.</p>
+
+    <div class="pullquote"><p>I set three constraints for myself before designing: no multiple pages, both selections visible at the same time, and easy to undo either selection independently.</p></div>
+
+    <p>These weren't requirements from the brief — they were decisions I made based on what I knew about how compliance officers work. They're reviewing specific document pairs. They need to be confident both documents are the right ones before committing to an analysis.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">Three iterations to get there</div>
+
+    <div class="iter-grid">
+      <div class="iter-card">
+        <div class="i-label">Iteration 1 — timeline steps</div>
+        <div class="i-desc">Step-by-step wizard. Broke the constraint immediately — multiple pages, users lost visibility of first selection by step two.</div>
+      </div>
+      <div class="iter-card">
+        <div class="i-label">Iteration 2 — modal with stacked lists</div>
+        <div class="i-desc">Both lists in one modal, stacked vertically. Better — but the Analyse button sat at the bottom of a long scroll, and feedback was "what am I supposed to do with this list?"</div>
+      </div>
+      <div class="iter-card final">
+        <div class="i-label">Iteration 3 — tabbed layout, selections at top ✓</div>
+        <div class="i-desc">Selection boxes anchored at the top. Tabs below to switch between lists. Analyse button beside the selections — always visible, never buried.</div>
+      </div>
+    </div>
+
+    <div class="img-slot">[ Insert: iteration 2 — modal with stacked Authority Document and Internal Document sections ]</div>
+    <div class="img-slot">[ Insert: iteration 3 — final tabbed layout with selections pinned at top ]</div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">What the final design does and why</div>
+
+    <ul class="detail-list">
+      <li>
+        <span class="d-main">Two selection boxes sit at the top — one for the authority document, one for the internal document</span>
+        <span class="d-sub">Both visible simultaneously so users can verify their pair before running the analysis</span>
+      </li>
+      <li>
+        <span class="d-main">Each box has placeholder text explaining what goes there before anything is selected</span>
+        <span class="d-sub">"Add from Internal Documents list / It will be shown here" — reduces confusion without a separate onboarding flow</span>
+      </li>
+      <li>
+        <span class="d-main">Each selected document shows an X to remove it independently</span>
+        <span class="d-sub">Users can swap one document without losing the other — no starting over</span>
+      </li>
+      <li>
+        <span class="d-main">The document list uses tabs to switch between Authority Documents and Internal Documents</span>
+        <span class="d-sub">Single screen, no navigation — users browse and select without leaving the page</span>
+      </li>
+      <li>
+        <span class="d-main">The Analyse Documents button sits beside the selection boxes, not at the bottom of the list</span>
+        <span class="d-sub">Always visible regardless of how far the user scrolls through the document list</span>
+      </li>
+      <li>
+        <span class="d-main">The analysis history shows a "Processing..." state inline with a progress bar</span>
+        <span class="d-sub">Users can track progress without leaving the page — no separate loading screen</span>
+      </li>
+    </ul>
+
+    <div class="annotation">The label "Authority Document" came directly from card sorting research — users consistently used this term over alternatives like "regulatory document" or "external document."</div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">What I'd do differently — and what's already planned</div>
+    <p>The current design places the Analysis History tab at the same level as the document selection tabs. That created a hierarchy problem — analysis history has nothing to do with document selection, but it sits alongside selection tools as if it does. A user encountering it for the first time could reasonably wonder what it's doing there.</p>
+    <p>The next version addresses this directly. The main page becomes the analysis history — a list of all previous and in-progress analyses. Starting a new analysis triggers a modal where users search and select their two documents simultaneously. This came from a conversation with the developers, who flagged that a search-while-viewing-list interaction was technically feasible. I wouldn't have known to propose it without that input — and it unlocked a significantly better flow than what I'd been assuming was possible.</p>
+
+    <div class="next-ver">
+      <div class="next-ver-label">Next version — in development</div>
+      Analysis history as the main view → "Add New Analysis" button → modal with live search across both document lists simultaneously. Cleaner hierarchy, faster selection, no tab confusion.
+    </div>
+
+    <div class="img-slot">[ Insert: next version design — analysis history as main page with modal selection ]</div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">What this taught me</div>
+    <div class="callout"><p>"When there are no references to follow, the constraints you set for yourself become the design. I didn't find the answer by looking at other products — I found it by being clear about what the user needed to see and do at every moment on the screen. And the best improvement to this design didn't come from me — it came from listening to the developers."</p></div>
+  </div>
+
+</main>
+
+<div class="cs-nav">
+  <a href="cs-aichat.html">← AI chat</a>
+  <a href="index.html">Back to home →</a>
+</div>
+
+</body>
+</html>
